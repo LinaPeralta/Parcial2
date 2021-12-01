@@ -1,0 +1,30 @@
+body
+{
+    
+    font-family: Helvetica;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    font-size: 15px;
+    background-color: beige;
+  
+}
+
+#titulo{
+color: brown;
+}
+
+
+#ingresarBtn{
+    margin:20px;
+}
+
+.label{
+    color: lightslategray;
+}
+
+#contraseña{
+    margin:10px;
+}
+
