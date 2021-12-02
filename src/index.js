@@ -13,12 +13,35 @@ const app = initializeApp(firebaseConf);
 const db = getDatabase();
 const auth = getAuth();
 
-const nobono = document.getElementById("nonbono");
+const book = document.getElementById("books");
 
 
-function pintarLibros(){
-    nobono.innerHTML="";
-    bonoPlata.innerHTML="";
-    bonoOro.innerHTML="";
+function obtenerLibros(){
+    
+    const db = getDatabase();
+    const reference = ref(db, 'Libros');
 
+    onValue(reference, (snapshot) => {
+        const info = snapshot.val();
+        pintarLibros(info);
+    });
 }
+
+function pintarLibros(info){
+    if(info){
+        book.innerHTML = "";
+        
+
+        Object.keys(info).forEach((k, index) => {
+            const cartas = new libros(info[k]);
+            book.appendChild(cartas.crearItem());
+           
+        });
+    }
+}
+
+obtenerLibros();
+
+
+
+

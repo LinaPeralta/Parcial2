@@ -28,3 +28,13 @@ color: brown;
     margin:10px;
 }
 
+.carta{
+    background-color:wheat;
+   width: 400px;
+   height: 130px;
+   padding-left: 15px;
+   color:sienna;
+   border-radius: 10px;
+  
+}
+
