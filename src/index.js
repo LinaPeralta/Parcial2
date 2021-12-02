@@ -1,7 +1,7 @@
 
 import {getFirebaseConfig} from './firebase-config.js';
 
-// Modulos de firebase a utilizar
+
 import { initializeApp } from 'firebase/app';
 import {getDatabase, ref, get, onValue} from 'firebase/database';
 import {getAuth, onAuthStateChanged} from 'firebase/auth';

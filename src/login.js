@@ -1,17 +1,16 @@
-// Importar paquetes
-// Configuracion de firebase
+
 import {getFirebaseConfig} from './firebase-config.js';
 
-// Modulos de firebase a utilizar
+
 import { initializeApp } from 'firebase/app';
 import {getAuth, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth';
 
-// Inicializar y configurar firebase
+
 const firebaseConf = getFirebaseConfig();
 const app = initializeApp(firebaseConf);
 const auth = getAuth();
 
-// Elementos de la página
+
 const email = document.getElementById("usuario");
 const contra = document.getElementById("contraseña");
 const ingresarBoton = document.getElementById("ingresarBtn");
@@ -31,7 +30,7 @@ ingresarBoton.addEventListener("click", login);
 
 onAuthStateChanged(auth, (user_account)=>{
     if (user_account){
-        // Hay usuario loguegado
+       
         console.log("account", user_account);
         window.location.href = "main.html"
     }
