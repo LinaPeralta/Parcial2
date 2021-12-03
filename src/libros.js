@@ -19,7 +19,7 @@ export class libros{
 
      let votosLibro = document.createElement("h3");
      votosLibro.className = "libroVotos";
-     votosLibro.innerHTML= this.libro.Votos;
+     votosLibro.innerHTML= this.libro.Promedio;
 
      let unoBtn = document.createElement("button");
      let dosBtn = document.createElement("button");
@@ -48,66 +48,123 @@ export class libros{
      card.appendChild(cincoBtn);
      card.appendChild(votosLibro);
 
-     let votos = 0;
 
-      //cuando haga click en el boton que sume el promedio
+      //cuando haga click en el boton que sumen los votos y calcule el promedio
+
       //una estrella
       unoBtn.addEventListener("click",(e,event)=>{
 
-        votos++;
-        console.log(votos);
-        const db = getDatabase();
-        const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
-
-        update(referenciaVotos, {"Votos": votos});
+         const db = getDatabase();
+        
+         const votacion = ref(db,"Libros/"+this.libro.ID + "/" + "Votos");
+         const cant = ref(db,"Libros/"+this.libro.ID + "/" + "CantVotos");
+         const prom = ref(db,"Libros/"+this.libro.ID + "/" + "Promedio");
+   
+ 
+         this.libro.CantVotos ++;
+         this.libro.Votos +=1;
+         //calcular el promedio
+         this.libro.Promedio = (this.libro.Votos/this.libro.CantVotos).toFixed(1);
+ 
+        // const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
+ 
+         
+         set(votacion, this.libro.Votos);
+         set(cant, this.libro.CantVotos);
+         set(prom, this.libro.Promedio);
 
      });
+
 
      //dos estrellas
      dosBtn.addEventListener("click",(e,event)=>{
 
-        votos+=2;
-        console.log(votos);
         const db = getDatabase();
-        const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
+        
+        const votacion = ref(db,"Libros/"+this.libro.ID + "/" + "Votos");
+        const cant = ref(db,"Libros/"+this.libro.ID + "/" + "CantVotos");
+        const prom = ref(db,"Libros/"+this.libro.ID + "/" + "Promedio");
 
-        update(referenciaVotos, {"Votos": votos});
+        this.libro.CantVotos ++;
+        this.libro.Votos +=2;
+        //calcular el promedio
+        this.libro.Promedio = (this.libro.Votos/this.libro.CantVotos).toFixed(1);
+
+       // const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
+
+        set(votacion, this.libro.Votos);
+        set(cant, this.libro.CantVotos);
+        set(prom, this.libro.Promedio);
 
      });
+
+  
 
      //tres estrellas
      tresBtn.addEventListener("click",(e,event)=>{
 
-        votos+=3;
-        console.log(votos);
         const db = getDatabase();
-        const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
 
-        update(referenciaVotos, {"Votos": votos});
+        const votacion = ref(db,"Libros/"+this.libro.ID + "/" + "Votos");
+        const cant = ref(db,"Libros/"+this.libro.ID + "/" + "CantVotos");
+        const prom = ref(db,"Libros/"+this.libro.ID + "/" + "Promedio");
+
+        this.libro.CantVotos ++;
+        this.libro.Votos +=3;
+        //calcular el promedio
+        this.libro.Promedio = (this.libro.Votos/this.libro.CantVotos).toFixed(1);
+
+       // const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
+
+       set(votacion, this.libro.Votos);
+       set(cant, this.libro.CantVotos);
+       set(prom, this.libro.Promedio);
+       
 
      });
 
      //cuatro estrellas
      cuatroBtn.addEventListener("click",(e,event)=>{
 
-        votos+=4;
-        console.log(votos);
         const db = getDatabase();
-        const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
+        const votacion = ref(db,"Libros/"+this.libro.ID + "/" + "Votos");
+        const cant = ref(db,"Libros/"+this.libro.ID + "/" + "CantVotos");
+        const prom = ref(db,"Libros/"+this.libro.ID + "/" + "Promedio");
 
-        update(referenciaVotos, {"Votos": votos});
+        this.libro.CantVotos ++;
+        this.libro.Votos +=4;
+        //calcular el promedio
+        this.libro.Promedio = (this.libro.Votos/this.libro.CantVotos).toFixed(1);
+
+       // const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
+
+        set(votacion, this.libro.Votos);
+        set(cant, this.libro.CantVotos);
+        set(prom, this.libro.Promedio);
+
 
      });
 
      //cinco estrellas
      cincoBtn.addEventListener("click",(e,event)=>{
 
-        votos+=5;
-        console.log(votos);
         const db = getDatabase();
-        const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
 
-        update(referenciaVotos, {"Votos": votos});
+        const votacion = ref(db,"Libros/"+this.libro.ID + "/" + "Votos");
+        const cant = ref(db,"Libros/"+this.libro.ID + "/" + "CantVotos");
+        const prom = ref(db,"Libros/"+this.libro.ID + "/" + "Promedio");
+
+        this.libro.CantVotos ++;
+        this.libro.Votos +=5;
+        //calcular el promedio
+        this.libro.Promedio = (this.libro.Votos/this.libro.CantVotos).toFixed(1);
+
+       // const referenciaVotos = ref(db,"Libros/"+this.libro.ID);
+
+       set(votacion, this.libro.Votos);
+       set(cant, this.libro.CantVotos);
+       set(prom, this.libro.Promedio);
+      
 
      });
 
